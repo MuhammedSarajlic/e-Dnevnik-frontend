@@ -16,7 +16,7 @@ const Sidebar = () => {
   const handleLogOut = () => {
     localStorage.removeItem('accessToken');
     dispatch(setIsAuthenticated(false));
-    navigate('/login');
+    navigate('/');
   };
 
   return (

@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../helper/Hooks';
 import { setIsLoaded } from '../../../redux/slices/LoadingSlice';
 import NewClassModal from '../../../components/NewClassModal';
 import useToggle from '../../../helper/useToggle';
+import Sidebar from '../../../components/Sidebar';
 
 export type TClassDetails = {
   id: number;
@@ -132,8 +133,9 @@ const Class = () => {
   };
 
   return (
-    <>
-      <div className='w-5/6'>
+    <div className='flex w-full'>
+      <Sidebar />
+      <div className=' w-5/6'>
         <div className='flex bg-white items-center text-lg font-semibold pl-6 w-full h-16 border-b-[1px]'>
           Pregled razreda
         </div>
@@ -177,7 +179,7 @@ const Class = () => {
         allProfessors={allProfessors}
         allStudents={allStudents}
       />
-    </>
+    </div>
   );
 };
 

@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from './helper/Hooks';
 import { setIsAuthenticated } from './redux/slices/authenticationSlice';
 import Class from './pages/Classes/Class/Class';
 import ClassDetails from './pages/Classes/ClassDetails/ClassDetails';
-import Sidebar from './components/Sidebar';
 
 function App() {
   const location = useLocation();
@@ -23,12 +22,61 @@ function App() {
     }
   }, [dispatch, location.pathname]);
 
+  const routes = [
+    // {
+    //   path: '/login',
+    //   element: <Login />,
+    //   isAuthReq: false,
+    // },
+    // {
+    //   path: '/',
+    //   element: <Dashboard />,
+    //   isAuthReq: true,
+    // },
+    {
+      path: '/razredi',
+      element: <Class />,
+      isAuthReq: true,
+    },
+    {
+      path: '/razredi/:id',
+      element: <ClassDetails />,
+      isAuthReq: true,
+    },
+    {
+      path: '/profesori',
+      element: <NotFound />,
+      isAuthReq: true,
+    },
+    {
+      path: '/ucenici',
+      element: <NotFound />,
+      isAuthReq: true,
+    },
+    {
+      path: '/odjeljenja',
+      element: <NotFound />,
+      isAuthReq: true,
+    },
+  ];
+
   return (
     <>
-      <div className='flex'>
-        {isAuthenticated && <Sidebar />}
-        <Routes>
+      <Routes>
+        <Route
+          path='/'
+          element={!isAuthenticated ? <Login /> : <Dashboard />}
+        />
+        {routes.map((route) => (
           <Route
+            key={route.path}
+            path={route.path}
+            element={
+              isAuthenticated ? route.element : <Navigate to='/' replace />
+            }
+          />
+        ))}
+        {/* <Route
             path='/login'
             element={
               !isAuthenticated ? (
@@ -78,9 +126,8 @@ function App() {
               isAuthenticated ? <NotFound /> : <Navigate to='/login' replace />
             }
           />
-          <Route path='/*' element={<NotFound />} />
-        </Routes>
-      </div>
+          <Route path='/*' element={<NotFound />} /> */}
+      </Routes>
     </>
   );
 }
