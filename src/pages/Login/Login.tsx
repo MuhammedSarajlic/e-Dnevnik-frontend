@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../helper/Hooks';
+import { useAppDispatch } from '../../helper/ReduxHooks/Hooks';
 import { setIsAuthenticated } from '../../redux/slices/authenticationSlice';
 
 type TUser = {

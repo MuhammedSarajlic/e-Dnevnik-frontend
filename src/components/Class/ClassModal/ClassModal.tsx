@@ -3,7 +3,7 @@ import {
   MajorDetails,
   ProfessorDetails,
   StudentDetails,
-} from '../pages/Classes/Class/Class';
+} from '../../../pages/Classes/ClassPage/ClassPage';
 
 interface Props {
   show: boolean | ((isOpen: boolean) => void);

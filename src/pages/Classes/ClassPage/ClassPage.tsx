@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import api from '../../../services/api';
-import ClassTable from '../../../components/ClassTable';
-import { useAppDispatch, useAppSelector } from '../../../helper/Hooks';
+import ClassTable from '../../../components/Class/ClassTable/ClassTable';
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../helper/ReduxHooks/Hooks';
 import { setIsLoaded } from '../../../redux/slices/LoadingSlice';
-import NewClassModal from '../../../components/NewClassModal';
+import NewClassModal from '../../../components/Class/ClassModal/ClassModal';
 import useToggle from '../../../helper/useToggle';
-import Sidebar from '../../../components/Sidebar';
+import Sidebar from '../../../components/Sidebar/Sidebar';
 
 export type TClassDetails = {
   id: number;

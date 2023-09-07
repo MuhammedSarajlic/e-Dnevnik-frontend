@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../helper/Hooks';
-import { TClassDetails } from '../pages/Classes/Class/Class';
+import { useAppSelector } from '../../../helper/ReduxHooks/Hooks';
+import { TClassDetails } from '../../../pages/Classes/ClassPage/ClassPage';
 
 interface Props {
   classes: TClassDetails[];

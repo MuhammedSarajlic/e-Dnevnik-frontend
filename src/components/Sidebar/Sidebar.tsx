@@ -5,8 +5,8 @@ import { PiStudentFill } from 'react-icons/pi';
 import { BiLogOut } from 'react-icons/bi';
 import { BsFillJournalBookmarkFill } from 'react-icons/bs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../helper/Hooks';
-import { setIsAuthenticated } from '../redux/slices/authenticationSlice';
+import { useAppDispatch } from '../../helper/ReduxHooks/Hooks';
+import { setIsAuthenticated } from '../../redux/slices/authenticationSlice';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Sidebar = () => {
   const handleLogOut = () => {
     localStorage.removeItem('accessToken');
     dispatch(setIsAuthenticated(false));
-    navigate('/');
+    navigate('/login');
   };
 
   return (
